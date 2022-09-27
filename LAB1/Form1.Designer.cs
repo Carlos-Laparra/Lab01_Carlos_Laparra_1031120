@@ -36,6 +36,13 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.rtxtNombres = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.OFD_CARGAR = new System.Windows.Forms.OpenFileDialog();
+            this.cbElegirUser = new System.Windows.Forms.ComboBox();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.btnVerCompanies = new System.Windows.Forms.Button();
+            this.btn_Code_Decode = new System.Windows.Forms.Button();
+            this.btn_Cartas = new System.Windows.Forms.Button();
+            this.btn_VerCartas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -99,9 +106,9 @@
             // 
             // rtxtNombres
             // 
-            this.rtxtNombres.Location = new System.Drawing.Point(155, 403);
+            this.rtxtNombres.Location = new System.Drawing.Point(40, 403);
             this.rtxtNombres.Name = "rtxtNombres";
-            this.rtxtNombres.Size = new System.Drawing.Size(490, 133);
+            this.rtxtNombres.Size = new System.Drawing.Size(515, 133);
             this.rtxtNombres.TabIndex = 6;
             this.rtxtNombres.Text = "";
             this.rtxtNombres.Visible = false;
@@ -116,12 +123,76 @@
             this.label1.TabIndex = 7;
             this.label1.Visible = false;
             // 
+            // OFD_CARGAR
+            // 
+            this.OFD_CARGAR.FileName = "OFD_Cargar";
+            this.OFD_CARGAR.Filter = "Archivos CSV|*.csv";
+            // 
+            // cbElegirUser
+            // 
+            this.cbElegirUser.FormattingEnabled = true;
+            this.cbElegirUser.Location = new System.Drawing.Point(561, 403);
+            this.cbElegirUser.Name = "cbElegirUser";
+            this.cbElegirUser.Size = new System.Drawing.Size(188, 28);
+            this.cbElegirUser.TabIndex = 8;
+            this.cbElegirUser.Text = "Ver compañías...";
+            this.cbElegirUser.Visible = false;
+            // 
+            // btnVerCompanies
+            // 
+            this.btnVerCompanies.Location = new System.Drawing.Point(609, 446);
+            this.btnVerCompanies.Name = "btnVerCompanies";
+            this.btnVerCompanies.Size = new System.Drawing.Size(111, 34);
+            this.btnVerCompanies.TabIndex = 9;
+            this.btnVerCompanies.Text = "Ver";
+            this.btnVerCompanies.UseVisualStyleBackColor = true;
+            this.btnVerCompanies.Visible = false;
+            this.btnVerCompanies.Click += new System.EventHandler(this.btnVerCompanies_Click);
+            // 
+            // btn_Code_Decode
+            // 
+            this.btn_Code_Decode.Location = new System.Drawing.Point(609, 502);
+            this.btn_Code_Decode.Name = "btn_Code_Decode";
+            this.btn_Code_Decode.Size = new System.Drawing.Size(111, 34);
+            this.btn_Code_Decode.TabIndex = 11;
+            this.btn_Code_Decode.Text = "Codificar";
+            this.btn_Code_Decode.UseVisualStyleBackColor = true;
+            this.btn_Code_Decode.Visible = false;
+            this.btn_Code_Decode.Click += new System.EventHandler(this.btn_Code_Decode_Click);
+            // 
+            // btn_Cartas
+            // 
+            this.btn_Cartas.Location = new System.Drawing.Point(334, 597);
+            this.btn_Cartas.Name = "btn_Cartas";
+            this.btn_Cartas.Size = new System.Drawing.Size(111, 34);
+            this.btn_Cartas.TabIndex = 12;
+            this.btn_Cartas.Text = "Cargar cartas";
+            this.btn_Cartas.UseVisualStyleBackColor = true;
+            this.btn_Cartas.Visible = false;
+            this.btn_Cartas.Click += new System.EventHandler(this.btn_Cartas_Click);
+            // 
+            // btn_VerCartas
+            // 
+            this.btn_VerCartas.Location = new System.Drawing.Point(609, 597);
+            this.btn_VerCartas.Name = "btn_VerCartas";
+            this.btn_VerCartas.Size = new System.Drawing.Size(111, 34);
+            this.btn_VerCartas.TabIndex = 13;
+            this.btn_VerCartas.Text = "Ver cartas";
+            this.btn_VerCartas.UseVisualStyleBackColor = true;
+            this.btn_VerCartas.Visible = false;
+            this.btn_VerCartas.Click += new System.EventHandler(this.btn_VerCartas_Click);
+            // 
             // Menu_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LAB1.Properties.Resources.LOGO;
-            this.ClientSize = new System.Drawing.Size(767, 626);
+            this.ClientSize = new System.Drawing.Size(767, 668);
+            this.Controls.Add(this.btn_VerCartas);
+            this.Controls.Add(this.btn_Cartas);
+            this.Controls.Add(this.btn_Code_Decode);
+            this.Controls.Add(this.btnVerCompanies);
+            this.Controls.Add(this.cbElegirUser);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtxtNombres);
             this.Controls.Add(this.txtBuscar);
@@ -148,5 +219,12 @@
         private TextBox txtBuscar;
         private RichTextBox rtxtNombres;
         private Label label1;
+        private OpenFileDialog OFD_CARGAR;
+        private ComboBox cbElegirUser;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Button btnVerCompanies;
+        private Button btn_Code_Decode;
+        private Button btn_Cartas;
+        private Button btn_VerCartas;
     }
 }

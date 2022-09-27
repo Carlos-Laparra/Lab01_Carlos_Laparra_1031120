@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace ArbolB
 {
     public class ArbolB<T>
     {
+        public int altura;
         public bool sucesorentra;
         public T SucesorV;
         public int minimo;
@@ -34,7 +36,8 @@ namespace ArbolB
         public void changeComparador(Comparador<T> Funcomparador)
         {
             this.comparador = Funcomparador;
-        } 
+        }
+        
         public List<T> Recorridos(T dato)
         {
             pre = new List<T>();
@@ -44,21 +47,7 @@ namespace ArbolB
             inorder(dato, root);
             return pre;
         }
-        //public int[] Recorridos2(int x)
-        //{
-        //    pre = new List<T>();
-           
-        //        inorder(root);
-           
-        //    int i = 0;
-        //    int[] xd = new int[1000];
-        //    while (i < pre.Count)
-        //    {
-        //        xd[i] = Convert.ToInt32(pre[i]);
-        //        i++;
-        //    }
-        //    return xd;
-        //}
+       
         public bool IsEmpty()
         {
             if (root == null)
@@ -79,6 +68,7 @@ namespace ArbolB
             {
                 root = new Node<T>(n, comparador);
                 root.AddValue(dato);
+                altura++;
             }
             else
             {
@@ -125,6 +115,7 @@ namespace ArbolB
                             k++;
                         }
                         aux.AddValue(dato);
+                        altura++;
                         if (AnteriorActual == null)
                         {
                             partirRaiz(ref Left, ref Right, ref Actual, ref aux);
@@ -137,6 +128,7 @@ namespace ArbolB
                     else
                     {
                         Actual.AddValue(dato);
+                        altura++;
                         valoringresado = true;
                     }
                 }
@@ -362,6 +354,7 @@ namespace ArbolB
             if (ValorRepetido == true)
             {
                 Delete2(value, root, null);
+                altura--;
                 return true;
             }
             else
@@ -394,10 +387,12 @@ namespace ArbolB
                         if (Padreactual != null)
                         {
                             Actual.eliminar1(i);
+                            altura--;
                         }
                         else
                         {
                             Actual.eliminar2(i, ref root);
+                            altura--;
                         }
                     }
                     i = n;

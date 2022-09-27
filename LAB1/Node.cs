@@ -57,7 +57,7 @@ namespace ArbolB
                     Value = value
                 };
             }
-
+            
             CorrectOrder();
         }
         public void eliminar1(int posicion)
